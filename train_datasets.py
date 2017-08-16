@@ -1,4 +1,4 @@
-"""
+le"""
 This contains arrays on the task of evaluating relational derived response as a psychological phenomenom related with complex behaviors and language.
 
 The data are arrays of two elements. The first is the list of bits representing the stimulus configuration
@@ -13,6 +13,7 @@ stims={"A":[1,0,0,0,0],
       }
 
 # The answer choices encoding
+# 3 action options, and no answer as the fourth option.
 options={"O_1":[1,0,0],
          "O_2":[0,1,0],
          "O_3":[0,0,1],
@@ -20,7 +21,7 @@ options={"O_1":[1,0,0],
         }
 
 
-# Trainning for symmetry on all the combinations from A to E
+# Trainning for reflexivity on all the combinations from A to E
 reflexiv=[
     [[1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,0,0],[1,0,0]], #A-ABC O_1
     [[1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,1,0],[1,0,0]], #A-ABD O_1
