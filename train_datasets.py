@@ -1,8 +1,7 @@
-le"""
+"""
 This contains arrays on the task of evaluating relational derived response as a psychological phenomenom related with complex behaviors and language.
-
 The data are arrays of two elements. The first is the list of bits representing the stimulus configuration
-
+The second is 
 """
 # The stimulus encoding
 stims={"A":[1,0,0,0,0],
