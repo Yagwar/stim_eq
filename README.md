@@ -1,11 +1,8 @@
 # Equivalence relations
 ### Evaluating a psychological phenomena on machine learning algorithms *
+(* WORK IN PROGRESS)
 
-* WORK IN PROGRESS
-
-This python script contains arrays on the task of evaluating relational derived response as a psychological phenomena related with complex behaviors such as cognition or language from a behaviorist viewpoint.
-
-The experiments are based on matching to sample procedures for evaluating relational response. Each trial consists on the presentation of 4 stimulus, a sample and 3 comparators. The participant must select the position of the comparator related to the sample according to the training. 
+The experiments are based on matching to sample procedures for evaluating relational derived response, a psychological phenomena related with complex behaviors such as cognition or language from a behaviorist viewpoint (the psychological theory that inspired reinforcement learning). Each trial consists on the presentation of 4 (of 12 possible) stimulus: one sample and 3 comparators. The participant must select the position of the comparator related to the sample according to the task trained.
 
 The data are arrays of two list of bits where the first one is the encoded ( one sample and 3 comparators) set of stimulus presented. The second is the (target) expected correct answer.
 
