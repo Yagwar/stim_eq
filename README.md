@@ -5,7 +5,26 @@
 
 This python script contains arrays on the task of evaluating relational derived response as a psychological phenomena related with complex behaviors such as cognition or language from a behaviorist viewpoint.
 
-The data are arrays of two list of bits where the first one is the encoded (sample) set of stimulus presented. The second is the (target) expected correct answer. 
+The experiments are based on matching to sample procedures for evaluating relational response. Each trial consists on the presentation of 4 stimulus, a sample and 3 comparators. The participant must select the position of the comparator related to the sample according to the training. 
+
+The data are arrays of two list of bits where the first one is the encoded ( one sample and 3 comparators) set of stimulus presented. The second is the (target) expected correct answer.
+
+
+The stimulus encoding 
+
+    stims={"A":[1,0,0,0,0],
+           "B":[0,1,0,0,0],
+           "C":[0,0,1,0,0],
+           "D":[0,0,0,1,0],
+           "E":[0,0,0,0,1]
+           } 
+The answer choices encoding 
+
+    options={"O_1":[1,0,0],
+             "O_2":[0,1,0],
+             "O_3":[0,0,1],
+             "O_0":[0,0,0]
+             }
 
 ## References
 
