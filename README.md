@@ -2,33 +2,45 @@
 ### Evaluating a psychological phenomena on machine learning algorithms *
 (* WORK IN PROGRESS)
 
-The experiments are based on matching to sample procedures for evaluating relational derived response, a psychological phenomena related with complex behaviors such as cognition or language, from a behaviorist viewpoint (the psychological theory that inspired reinforcement learning). Each trial consists on the presentation of 4 (of 12 possible) stimulus: one sample and 3 comparators. The participant must select the position of the comparator related to the sample according to the task trained.
+The experiments are based on matching to sample procedures for evaluating relational derived response, a psychological phenomena related with complex behaviors such as cognition or language, from a behaviorist viewpoint (the psychological "school" that inspired reinforcement learning). Each trial consists on the presentation of 6 (out of 18 possible) stimuli: one sample and 5 comparators. The agent must select the position of the related comparator.
 
-The data are arrays of two list of bits where the first one is the encoded ( one sample and 3 comparators) set of stimulus presented. The second is the (target) expected correct answer.
+The experiment has 2 phases: training and evaluation. The objective is to create a ML algorithm that be capable of mark the related stimulus, evidencing emergent relations among the stimuli.
+
+The data consist on .csv files,  3  for every task (training and 4 evaluations of emergent relations):
+- "labels" file. It was made for informative purposes, showing the stimuli presented on the trial. 
+- "values" file. Those are the stimuli encoded (108 bits), representing a trial for the task.
+- "answer" file. The encoded answer (5 bit) marking the expected answer of the trial.
 
 
-The stimulus encoding 
+The stimuli encoding 
 
-    stims={"A1":[1,0,0,0,0,0,0,0,0,0,0,0],
-           "A2":[0,1,0,0,0,0,0,0,0,0,0,0],
-           "A3":[0,0,1,0,0,0,0,0,0,0,0,0],
-           "A4":[0,0,0,1,0,0,0,0,0,0,0,0],
-           "B1":[0,0,0,0,1,0,0,0,0,0,0,0],
-           "B2":[0,0,0,0,0,1,0,0,0,0,0,0],
-           "B3":[0,0,0,0,0,0,1,0,0,0,0,0],
-           "B4":[0,0,0,0,0,0,0,1,0,0,0,0],
-           "C1":[0,0,0,0,0,0,0,0,1,0,0,0],
-           "C2":[0,0,0,0,0,0,0,0,0,1,0,0],
-           "C3":[0,0,0,0,0,0,0,0,0,0,1,0],
-           "C4":[0,0,0,0,0,0,0,0,0,0,0,1]
-           }
-The answer choices encoding 
+    stims={"A1":[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+       "A2":[0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+       "A3":[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+       "A4":[0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+       "A5":[0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
+       "A6":[0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0],
+       "B1":[0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],
+       "B2":[0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],
+       "B3":[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0],
+       "B4":[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0],
+       "B5":[0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
+       "B6":[0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],
+       "C1":[0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0],
+       "C2":[0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0],
+       "C3":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0],
+       "C4":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0],
+       "C5":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],
+       "C6":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]
+      }
 
-    options={"O_1":[1,0,0],
-             "O_2":[0,1,0],
-             "O_3":[0,0,1],
-             "O_0":[0,0,0]
-             }
+    options={"O_1":[1,0,0,0,0],
+         "O_2":[0,1,0,0,0],
+         "O_3":[0,0,1,0,0],
+         "O_4":[0,0,0,1,0],
+         "O_5":[0,0,0,0,1],
+         "O_0":[0,0,0,0,0],
+        }
 
 ## References
 
@@ -38,7 +50,6 @@ https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1284788/
 Sidman, M. (2009). Equivalence Relations and Behavior: An Introductory Tutorial. The Analysis of Verbal Behavior, 25(1), 5–17.
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2779070/
 
-http://www.txaba.org/files/pdfs/Conference2017/StimulusEquivalence_Vaidya.pdf
 
 ### also check:
 
