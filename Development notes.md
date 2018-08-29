@@ -17,7 +17,9 @@ The first test was done with algorithms from scikit-learn. It was tested on shal
  They are working with a dataset that they created inspired on Raven Iq test. However, they are testing nets without knowing whats happening inside the network. 
  
  https://deepmind.com/blog/measuring-abstract-reasoning/
+ 
  http://proceedings.mlr.press/v80/santoro18a/santoro18a.pdf
+ 
  http://proceedings.mlr.press/v80/santoro18a/santoro18a-supp.pdf
  
  https://futurism.com/deepmind-abstract-reasoning-iq/
@@ -26,4 +28,5 @@ This could be usefull to compare the performance of the algorithms and found a p
 ### Deep Reinforcement learning Framework
 
 AI and Neuroscience https://youtu.be/uv4Hh3wDH14
+
 https://ai.googleblog.com/2018/08/introducing-new-framework-for-flexible.html
