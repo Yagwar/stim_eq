@@ -30,3 +30,7 @@ This could be usefull to compare the performance of the algorithms and found a p
 AI and Neuroscience https://youtu.be/uv4Hh3wDH14
 
 https://ai.googleblog.com/2018/08/introducing-new-framework-for-flexible.html
+
+## On the Measure of Intelligence -François Chollet
+https://arxiv.org/abs/1911.01547
+
