@@ -21,7 +21,7 @@ In this example, six stimuli were trained to form two classes (1 and 2) with thr
 ## Evaluating a psychological phenomena on machine learning algorithms *
 (* WORK IN PROGRESS)
 
-The experiments are based on matching to sample procedures for evaluating relational derived response, a psychological phenomena related with complex behaviour such as cognition or language, from a behaviorist viewpoint (the psychological "school" that inspired reinforcement learning). The objective is to create a ML algorithm that be capable of pass equivalence tests.
+The experiments are based on matching to sample procedures for evaluating relational derived response, a psychological phenomena related with complex behaviour such as cognition or language, from a behaviorist viewpoint (the psychological "school" that inspired reinforcement learning). The objective is to test SE on several ML algorithms.
 
 There are related experiments and publications separated by folders.
 
