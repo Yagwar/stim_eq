@@ -61,7 +61,7 @@ def create_trials(subset_to_trials, pairs_dataset_df, stimuli_list, dummy_list, 
         relation_dict = {
             "select_only": dummy_list,
             "select_reject": [stim for stim in stimuli_list if not(stim[1] == sample_class)],
-            "reject_only": [stim for stim in stimuli_set if not(stim[1] == sample_class)],
+            "reject_only": [stim for stim in stimuli_list if not(stim[1] == sample_class)],
         }    
         # Filter the stimulus 
         comparison_list = relation_dict.get(relation_type, [])
@@ -81,7 +81,7 @@ def create_trials(subset_to_trials, pairs_dataset_df, stimuli_list, dummy_list, 
     if relation_type == "reject_only":
         # replace sample with dummy to allow reject relations in comparisons
         sample_stims = trials_pairs_subset['st_sample']
-        sample_replace = dict(zip(sample_stims, np.random.choice(dummy_list, len(sample_stims), replace=False)))
+        sample_replace = dict(zip(sample_stims, np.random.choice(dummy_list, len(sample_stims), replace=True)))
         subset_trials_info_df['st_sample'] = subset_trials_info_df['st_sample'].replace(sample_replace) 
 
     return subset_trials_info_df
