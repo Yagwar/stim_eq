@@ -81,7 +81,10 @@ def create_trials(subset_to_trials, pairs_dataset_df, stimuli_list, dummy_list, 
     if relation_type == "reject_only":
         # replace sample with dummy to allow reject relations in comparisons
         sample_stims = trials_pairs_subset['st_sample']
-        sample_replace = dict(zip(sample_stims, np.random.choice(dummy_list, len(sample_stims), replace=True)))
+        if len (dummy_list) < len(sample_stims):
+            sample_replace = dict(zip(sample_stims, np.random.choice(dummy_list, len(sample_stims), replace=True)))
+        else:
+            sample_replace = dict(zip(sample_stims, np.random.choice(dummy_list, len(sample_stims), replace=False)))
         subset_trials_info_df['st_sample'] = subset_trials_info_df['st_sample'].replace(sample_replace) 
 
     return subset_trials_info_df
