@@ -7,3 +7,10 @@ All stimuli were one-hot encoded, assigning a unique feature vector representati
 During Training Process Each encoded trial was presented as context to the NCB agent. As reward function, the agent received a reward of 1 for selecting the correct comparison stimulus (matching the encoded action) and 0 for selecting an incorrect comparison. All encoded trials were used for training the NCB agent. Following training on baseline relations, the NCB agent's ability to demonstrate emergent properties of SE was evaluated. The agent was presented with encoded trials for reflexivity, symmetry, and transitivity relationships not explicitly trained upon. Performance on these evaluation trials was measured as the total reward received by the agent divided by the total number of trials for each subset (reflexivity, symmetry, transitivity). This provided a measure of the agent's ability to respond correctly to unseen relationships.
 
 This experiment utilized the Neural Contextual Bandit (NCB) agent presented in [Neural Contextual Bandits with UCB-based Exploration](https://paperswithcode.com/paper/neural-contextual-bandits-with-upper). Experiment was adapted from [NeuralUCB repo](https://github.com/uclaml/NeuralUCB).
+
+## Files:
+**SE_neural_contextual_bandit.ipynb**: Run trials creator, calls agent, and perform one experiment acording to protocol. Saves agent response and regrets.
+**experiment.py**: agents code adapted to SE simulation.
+**Results_explore.py**: helper functions for plot results.
+**Results.ipynb**: notebook to process data and results section.
+
