@@ -135,10 +135,6 @@ def create_trials_dummy(subset_to_train):
 
 
 def create_trials_comparison(subset_to_trials):
-    # subset_to_train="train" # variable
-    # dummy_list # info required
-    # pairs_dataset_df # info required
-    
     # create train trials with class comparison
     trials_pairs_subset=pairs_dataset_df[pairs_dataset_df.pair_subset==subset_to_trials]
     stims_array=np.array([list(stm_ky) for stm_ky in stim_keys if len(stm_ky)==2])
