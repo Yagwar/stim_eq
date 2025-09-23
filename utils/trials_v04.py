@@ -27,16 +27,34 @@ class TrialsGenerator:
         
         self.relation_type = relation_type
 
-        self.same_label_filter = same_label_filter
-        
         self.members_list, self.class_list, self.stimuli_list, self.dummy_list = self.get_stimuli_list()
         self.member_pairs_df = self.create_pair_members()
         self.experimental_pairs = self.create_pairs_classes(self.member_pairs_df)
-        
-        self.baseline_trials_info = self.create_trials(subset_to_trials="baseline")
-        self.reflexivity_trials_info = self.create_trials(subset_to_trials="reflexivity")
-        self.symmetry_trials_info = self.create_trials(subset_to_trials="symmetry")
-        self.transitivity_trials_info = self.create_trials(subset_to_trials="transitivity")
+
+        ### Evaluation pairs creator uses standard select-reject pairs for equal evaluation and stardard selection of negative stimulus (filter same label)
+        self.baseline_trials_info = self.create_trials(
+            subset_to_trials="baseline", 
+            eval_relation_type = self.relation_type,
+            same_label_filter = same_label_filter
+            )
+        self.reflexivity_trials_info = self.create_trials(
+            subset_to_trials="reflexivity", 
+            eval_relation_type = "select_reject",
+            same_label_filter = True
+            )
+        self.symmetry_trials_info = self.create_trials(
+            subset_to_trials="symmetry", 
+            eval_relation_type = "select_reject",
+            same_label_filter = True
+            )
+        self.transitivity_trials_info = self.create_trials(
+            subset_to_trials="transitivity", 
+            eval_relation_type = "select_reject",
+            same_label_filter = True)
+        # self.baseline_trials_info = self.create_trials(subset_to_trials="baseline")
+        # self.reflexivity_trials_info = self.create_trials(subset_to_trials="reflexivity")
+        # self.symmetry_trials_info = self.create_trials(subset_to_trials="symmetry")
+        # self.transitivity_trials_info = self.create_trials(subset_to_trials="transitivity")
         
 
     def get_stimuli_list(self):
@@ -86,8 +104,8 @@ class TrialsGenerator:
         dummy_twin_dict = dict(zip(self.stimuli_list, self.dummy_list))
         return dummy_twin_dict
 
-    def create_trials(self, subset_to_trials):
-
+    def create_trials(self, subset_to_trials, eval_relation_type, same_label_filter):
+        # trials creator consider eval_relation_type to separate baseline relation control and standard pairs on evaluation creation
         dummy_twin_dict = self.get_dummy_twin_dict()
         ## Filter the dataframe based on the subset_to_trials
         trials_pairs_subset = self.experimental_pairs[self.experimental_pairs.pair_subset == subset_to_trials]
@@ -105,14 +123,14 @@ class TrialsGenerator:
             negative_comparison_list = [stim for stim in self.stimuli_list if not(stim[1] == sample_class)]  # all labels comparisons in select-reject
 
             # Filter the stimulus to same label comparison
-            if self.same_label_filter:
+            if same_label_filter:
                 negative_comparison_list = [stim for stim in self.stimuli_list if ((stim[0] == comparison_member) and not(stim[1] == sample_class))]  # filtered  same label select-reject
 
             #### replace stimulus from relation type
-            if self.relation_type == 'select_only':
+            if eval_relation_type == 'select_only': #self.relation_type == 'select_only':
                 negative_comparison_list = [dummy_twin_dict[stim] for stim in negative_comparison_list]
 
-            if self.relation_type == 'reject_only':
+            if eval_relation_type == 'reject_only':#self.relation_type == 'reject_only':
                 st_comparison = dummy_twin_dict[st_comparison]
 
             # Create a list of combinations

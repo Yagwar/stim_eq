@@ -84,13 +84,13 @@ def plot_graph_results(
     edges_info=[node_origin,node_destiny,metric_column]
     full_pairs=np.array(graph_dat_plot[edges_info])
     #### results graph
-    dat_plot_pass=graph_dat_plot[graph_dat_plot[metric_column]>minimal_cut_value]
-    dat_plot_train_fail=graph_dat_plot[graph_dat_plot[metric_column]<=minimal_cut_value]
-    dat_plot_soft=graph_dat_plot[(graph_dat_plot[metric_column]<=minimal_cut_value)&(
-        graph_dat_plot[metric_column]>soft_cut_value)]
-    dat_plot_random=graph_dat_plot[(graph_dat_plot[metric_column]<=soft_cut_value)&(
-        graph_dat_plot[metric_column]>random_level)]
-    dat_plot_fail=graph_dat_plot[graph_dat_plot[metric_column]<=random_level]
+    dat_plot_pass=graph_dat_plot[graph_dat_plot[metric_column]>=minimal_cut_value]
+    dat_plot_train_fail=graph_dat_plot[graph_dat_plot[metric_column]<minimal_cut_value]
+    dat_plot_soft=graph_dat_plot[(graph_dat_plot[metric_column]<minimal_cut_value)&(
+        graph_dat_plot[metric_column]>=soft_cut_value)]
+    dat_plot_random=graph_dat_plot[(graph_dat_plot[metric_column]<soft_cut_value)&(
+        graph_dat_plot[metric_column]>=random_level)]
+    dat_plot_fail=graph_dat_plot[graph_dat_plot[metric_column]<random_level]
 
     train_pairs_pass = np.array(dat_plot_pass.loc[dat_plot_pass[trial_group]=="train", edges_info])
     reflexivity_pairs_pass = np.array(dat_plot_pass.loc[dat_plot_pass[trial_group]=="reflexivity", edges_info])
