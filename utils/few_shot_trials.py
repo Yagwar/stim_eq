@@ -169,13 +169,16 @@ class EvaluationDatasetBuilder:
         return pd.concat(sampled_rows).sample(frac=1).reset_index(drop=True)
 
     def format_trial_string(self, row, is_test=False):
-        base_text = (f"Target Symbol: '{row['st_sample']}'. "
+        # Use neutral interface terms instead of logical or behavioral jargon
+        base_text = (f"Given Symbol: '{row['st_sample']}'. "
                      f"Options: [O_1: '{row['st_comp1']}', O_2: '{row['st_comp2']}', O_3: '{row['st_comp3']}'].")
         
         if is_test:
-            return base_text + "\nTask: IF the Target Symbol is presented, THEN which Option is the correct response?"
+            # The prompt for the zero-shot evaluation trial
+            return base_text + "\nTask: Which option is the correct selection?"
         else:
-            return base_text + f"\nIF Target Symbol is '{row['st_sample']}', THEN selecting '{row['option_answer']}' is the Correct Response."
+            # The prompt for the few-shot training context
+            return base_text + f"\nCorrect Selection: '{row['option_answer']}'."
 
     def build_evaluation_dataset(self) -> pd.DataFrame:
         """Combines Reflexivity, Symmetry, and Transitivity into a final master dataset."""
